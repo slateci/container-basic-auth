@@ -4,7 +4,6 @@ RUN yum install -y sssd
 RUN yum install -y authconfig
 RUN yum install -y openssh-server
 RUN sshd-keygen
-COPY sssd.conf /etc/sssd/sssd.conf
 RUN chmod 600 /etc/sssd/sssd.conf
 # --enablesssd sets up nssswitch.conf with sssd
 # --enablesssdauth sets up pam with sssd

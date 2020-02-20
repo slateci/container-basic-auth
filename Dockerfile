@@ -11,4 +11,4 @@ COPY startup.sh /etc/startup.sh
 # --enablesssdauth sets up pam with sssd
 RUN authconfig --update --enablesssd --enablesssdauth --enablemkhomedir
 RUN chmod +x /etc/startup.sh
-CMD ["/bin/sh", "-c", "/etc/startup.sh && /usr/bin/supervisord"]
+CMD ["/bin/sh", "-c", "/etc/startup.sh && /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf"]

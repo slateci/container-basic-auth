@@ -1,0 +1,2 @@
+#!/bin/sh
+sshd-keygen

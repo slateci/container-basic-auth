@@ -10,6 +10,5 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 # --enablesssd sets up nssswitch.conf with sssd
 # --enablesssdauth sets up pam with sssd
 RUN authconfig --update --enablesssd --enablesssdauth --enablemkhomedir
-COPY startup.sh startup.sh
 RUN chmod +x startup.sh
-CMD ./startup.sh
+CMD ["/usr/bin/supervisord"]

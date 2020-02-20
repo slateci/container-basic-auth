@@ -7,8 +7,9 @@ RUN yum install -y supervisor
 RUN sshd-keygen
 RUN chmod 600 /etc/sssd/sssd.conf
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY startup.sh /etc/startup.sh
 # --enablesssd sets up nssswitch.conf with sssd
 # --enablesssdauth sets up pam with sssd
 RUN authconfig --update --enablesssd --enablesssdauth --enablemkhomedir
-RUN chmod +x startup.sh
-CMD ["/usr/bin/supervisord"]
+RUN chmod +x /etc/startup.sh
+CMD ["/bin/sh", "-c", "/etc/startup.sh && /usr/bin/supervisord"]

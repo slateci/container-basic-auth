@@ -3,6 +3,7 @@ RUN yum update -y
 RUN yum install -y sssd
 RUN yum install -y authconfig
 RUN yum install -y openssh-server
+RUN yum install -y supervisor
 RUN sshd-keygen
 RUN chmod 600 /etc/sssd/sssd.conf
 # --enablesssd sets up nssswitch.conf with sssd

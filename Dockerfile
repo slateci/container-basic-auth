@@ -5,7 +5,6 @@ RUN yum install -y sssd
 RUN yum install -y authconfig
 RUN yum install -y openssh-server
 RUN yum install -y supervisor
-RUN chmod 600 /etc/sssd/sssd.conf
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY startup.sh /etc/startup.sh
 # --enablesssd sets up nssswitch.conf with sssd
